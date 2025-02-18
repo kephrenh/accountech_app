@@ -1,9 +1,9 @@
 import type { NextAuthConfig } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import Google from "next-auth/providers/google";
-import { comparePassword } from "./lib/utils";
 import { prisma } from "./prisma/prisma";
 import { LoginSchema } from "./schemas";
+import { verifyPassword } from "./lib/utils";
 
 export default {
   providers: [
@@ -26,7 +26,7 @@ export default {
           return null;
         }
 
-        const isPasswordValid = await comparePassword(password, user.password);
+        const isPasswordValid = await verifyPassword(password, user.password);
 
         if (isPasswordValid) {
           return user;
