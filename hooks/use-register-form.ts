@@ -1,11 +1,13 @@
 import { register } from "@/actions/register";
 import { RegisterSchema } from "@/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 export const useRegisterForm = () => {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -32,6 +34,9 @@ export const useRegisterForm = () => {
         setLoading(false);
         setError("");
         setSuccess(res.success);
+        setTimeout(() => {
+          router.push("/auth/login");
+        }, 2000);
       }
       setLoading(false);
       form.reset();

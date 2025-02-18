@@ -1,9 +1,10 @@
 "use server";
+import { handleError } from "@/errors/register-action-error-handler";
+import { sendVerificationEmail } from "@/lib/mail";
+import { generateVerificationToken } from "@/lib/token";
 import { hashPassword } from "@/lib/utils";
 import { prisma } from "@/prisma/prisma";
 import { RegisterSchema } from "@/schemas";
-import { handleError } from "@/utils/error-handler";
-import { redirect } from "next/navigation";
 import * as z from "zod";
 
 export const register = async (data: z.infer<typeof RegisterSchema>) => {
@@ -42,9 +43,10 @@ export const register = async (data: z.infer<typeof RegisterSchema>) => {
       },
     });
 
-    redirect("/auth/login");
+    const verificationToken = await generateVerificationToken(email);
 
-    return { success: "Inscription reussie", user };
+    await sendVerificationEmail(email, verificationToken.token);
+    return { success: "Email de vérification envoyé", user };
   } catch (error) {
     const { error: errorMessage } = handleError(error);
     return { error: errorMessage };
