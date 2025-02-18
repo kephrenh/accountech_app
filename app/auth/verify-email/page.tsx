@@ -1,3 +1,4 @@
+"use client";
 import VerifyEmailForm from "@/components/auth/verify-email-form";
 import { Suspense } from "react";
 
