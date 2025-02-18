@@ -1,3 +1,4 @@
+"use client";
 import { newVerification } from "@/actions/new-verification";
 import { handleVerificationError } from "@/errors/handle-verification-error";
 import { useRouter, useSearchParams } from "next/navigation";
