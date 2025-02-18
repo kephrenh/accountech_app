@@ -31,11 +31,12 @@ export const login = async (data: z.infer<typeof LoginSchema>) => {
     });
   } catch (error) {
     if (error instanceof AuthError) {
+      console.log(error.type);
       switch (error.type) {
         case "CredentialsSignin":
           return { error: "Email ou mot de passe incorrect" };
         default:
-          return { error: "Merci de confirmer votre email." };
+          return { error: "Merci de vérifier votre email." };
       }
     }
     throw error;

@@ -3,6 +3,7 @@ import { hashPassword } from "@/lib/utils";
 import { prisma } from "@/prisma/prisma";
 import { RegisterSchema } from "@/schemas";
 import { handleError } from "@/utils/error-handler";
+import { redirect } from "next/navigation";
 import * as z from "zod";
 
 export const register = async (data: z.infer<typeof RegisterSchema>) => {
@@ -40,6 +41,8 @@ export const register = async (data: z.infer<typeof RegisterSchema>) => {
         name,
       },
     });
+
+    redirect("/auth/login");
 
     return { success: "Inscription reussie", user };
   } catch (error) {
