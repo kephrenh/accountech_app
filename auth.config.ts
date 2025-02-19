@@ -3,7 +3,7 @@ import Credentials from "next-auth/providers/credentials";
 import Google from "next-auth/providers/google";
 import { prisma } from "./prisma/prisma";
 import { LoginSchema } from "./schemas";
-import { verifyPassword } from "./lib/utils";
+import verifyPassword from "./utils/verify-password";
 
 export default {
   providers: [

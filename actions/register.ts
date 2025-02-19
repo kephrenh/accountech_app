@@ -2,9 +2,9 @@
 import { handleError } from "@/errors/register-action-error-handler";
 import { sendVerificationEmail } from "@/lib/mail";
 import { generateVerificationToken } from "@/lib/token";
-import { hashPassword } from "@/lib/utils";
 import { prisma } from "@/prisma/prisma";
 import { RegisterSchema } from "@/schemas";
+import hashPassword from "@/utils/hash-password";
 import * as z from "zod";
 
 export const register = async (data: z.infer<typeof RegisterSchema>) => {

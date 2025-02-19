@@ -83,7 +83,10 @@ const RegisterForm = () => {
           </div>
           <FormSuccess message={success} />
           <FormError message={error} />
-          <Button type="submit" className="w-full" disabled={loading}>
+          <Button
+            type="submit"
+            className="w-full text-white bg-indigo-600 hover:bg-indigo-700 transition-colors duration-200"
+            disabled={loading}>
             {loading ? "Chargement..." : "S'inscrire"}
           </Button>
         </form>

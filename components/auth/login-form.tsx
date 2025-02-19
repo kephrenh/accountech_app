@@ -55,11 +55,14 @@ export const LoginForm = () => {
               )}
             />
             <Button type="submit" size={"sm"} variant="link" asChild className="px-0 font-normal">
-              <Link href="/auth/reset">Mot de passe oublié?</Link>
+              <Link href="/reset">Mot de passe oublié?</Link>
             </Button>
           </div>
           <FormError message={error} />
-          <Button type="submit" className="w-full" disabled={loading}>
+          <Button
+            type="submit"
+            className="w-full text-white bg-indigo-600 hover:bg-indigo-700 transition-colors duration-200"
+            disabled={loading}>
             {loading ? "Chargement..." : "Se connecter"}
           </Button>
         </form>
