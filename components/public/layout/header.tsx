@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 
 const navItems = [
   { name: "Accueil", href: "/" },
-  { name: "À propos", href: "/a-propos" },
+  { name: "À propos", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Contact", href: "/contact" },
 ];
@@ -28,7 +28,9 @@ export default function Header() {
         <nav className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/">
-              <span className="text-2xl font-bold text-blue-600">AccounTech</span>
+              <span className="text-2xl font-medium">
+                Accoun<span className="text-indigo-600">Tech</span>
+              </span>
             </Link>
           </div>
           <div className="hidden sm:flex flex-grow justify-center items-center">

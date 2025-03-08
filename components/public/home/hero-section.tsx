@@ -6,7 +6,7 @@ const HeroSection = () => {
       <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
         <div className="text-center">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            Simplifiez votre comptabilité avec AccounTech
+            Simplifiez votre comptabilité avec Accoun<span className="text-indigo-600">Tech</span>
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-600">
             Optimisez vos processus financiers avec notre solution de comptabilité tout-en-un.
